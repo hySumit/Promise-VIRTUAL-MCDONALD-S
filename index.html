@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Pe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'poppins',sans-serif;
+        }
+
+        body {
+            background-color: blueviolet;
+        }
+
+        #phone {
+            
+            background-color: #1aad5f;
+            color: white;
+            height: 400px;
+            width: 25%;
+            margin: auto;
+            margin-top: 10px;
+            
+
+        }
+
+        .img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 150px;
+            animation-name: logo1;
+            animation-duration: 1.2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse;
+            animation-timing-function: ease-in-out;
+        }
+
+        @keyframes logo1 {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        .img>img {
+            width: 100px;
+            /* filter: contrast(100); */
+        }
+
+        #btn {
+            background-color: white;
+            height: 200px;
+            width: 25%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 200px;
+            /* margin-top: 200px; */
+        }
+
+        .img {
+            display: flex;
+            flex-direction: column;
+            text-align-last: center;
+        }
+
+        .img>p {
+            margin-top: 15px;
+        }
+
+        #btn>button {
+            border-radius: 30px;
+            height: 50px;
+            width: 200px;
+            border: none;
+            background-color: blueviolet;
+            color: white;
+            font-size: 17px;
+
+        }
+        .img2{
+            background-color: #1aad5f;
+            color: white;
+            height: 400px;
+            width: 25%;
+            margin: auto;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 20px;
+            font-weight: 600;
+            font-family: 'poppins',sans-serif;
+        }
+        .img2>img{
+            margin-bottom: 20px;
+            /* margin: auto; */
+            animation-name: logo2;
+            justify-content: center;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            width: 70px;
+            /* margin: auto; */
+        }
+        @keyframes logo2 {
+            from{
+                transform:  rotateZ(-180deg);
+            }
+            to{
+                transform: rotate(180deg );
+            }
+        }
+        #proccesing,#failed,#phone{
+            display:none;
+            /* border-top-right-radius: 20px; */
+            /* border-top-left-radius: 20px; */
+        }
+
+        .img3{
+            background-color: #ED5B4B;
+            color: white;
+            height: 400px;
+            width: 25%;
+            margin: auto;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 20px;
+            font-weight: 600;
+            font-family: 'poppins',sans-serif;
+        }
+        .img3>img{
+
+            margin-bottom: 20px;
+            width: 70px;
+            animation-name: logo3;
+            animation-duration: 1.2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse;
+            animation-timing-function: ease-in-out;
+
+        }
+
+        @keyframes logo3 {
+            from{
+                transform: scale(1) ;
+            }
+            to{
+                transform: scale(1.3);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div id="phone">
+            <div class="img active">
+                <img src="./media1/download_as_png (1).png (1).png" alt="">
+                <audio id="audio"  autoplay src=""></audio>
+                <p>Payment of ₹3000 to Prepleaf <br> Successful.</p>
+            </div>
+        </div>
+        <div id="proccesing">
+            <div class="img2">
+                <img src="./media1/reload.png" alt="">
+                <p>Connecting Securely</p>
+            </div>
+        </div>
+        <div id="failed">
+            <div class="img3">
+                <img src="./media1/failed.png" alt="">
+                <p>Transaction Failed</p>
+            </div>
+        </div>
+        <div id="btn">
+            <button onclick="makePayment()">Make Payment</button>
+        </div>
+    </div>
+</body>
+<script>
+
+function paymentFunction(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            let succsesRate = Math.random() < 0.7;
+            if(succsesRate){
+                resolve();
+            }
+            else{
+                reject();
+            }
+        },2000);
+
+    });
+}
+
+let phone = document.getElementById('phone')
+let reloading = document.getElementById('proccesing')
+let failure = document.getElementById('failed')
+let btn = document.getElementById('btn')
+
+function reload(){
+    reloading.style.display='block'
+    phone.style.display='none'
+    failure.style.display='none'
+    btn.style.top=0
+}
+
+function paymentOk(){
+    phone.style.display='block'
+    reloading.style.display='none'
+    failure.style.display='none'
+    btn.style.top=0
+
+    let audio= document.getElementById('audio')
+    audio.src = './media1/PhonepeOk.mp3'
+}
+
+function failed(){
+
+    failure.style.display='block'
+    reloading.style.display='none'
+    phone.style.display='none'
+    btn.style.top=0
+
+}
+
+function makePayment(){
+    reload();
+    paymentFunction()
+    .then(()=>{
+        paymentOk()
+    })
+    .catch(()=>{
+        failed()
+    })
+}
+    
+</script>
+</html>

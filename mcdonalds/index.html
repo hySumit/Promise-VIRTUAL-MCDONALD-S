@@ -1,0 +1,112 @@
+<!-- https://mcdindia.com/wp-content/uploads/2019/12/preloader.gif -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://mcdindia.com/wp-content/uploads/2020/04/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <title>VIRTUAL MCDONALD'S</title>
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img src="https://mcdindia.com/wp-content/uploads/2020/01/m-logo-big.svg" alt="">
+        </div>
+        <div class="lists">
+            <ul>
+                <li>Menu</li>
+                <li>Happy Meal</li>
+                <li>Restaurants</li>
+                <li>McDelivery</li>
+                <li>News</li>
+                <li>Birthday Party</li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="container-main" style="display: flex; justify-content: space-evenly;">
+        <div id="menu">
+            <div class="form">
+                <div class="formIn">
+                    <h1>MENU</h1>
+                    <hr>
+
+                    <input type="checkbox" name="BigMac" id="bigMac"> Big Mac <br>
+                    <input type="checkbox" name="" id="iceCoffee"> Iced Coffee <br>
+                    <input type="checkbox" name="" id="eggMuff"> Egg McMuffin <br>
+                    <input type="checkbox" name="" id="Sausage"> Sausage Burrito <br>
+                    <input type="checkbox" name="" id="spcy"> Spicy McCrispy <br>
+                </div>
+                <button id="orderbtn" onclick="orderFood()">Order</button>
+            </div>
+        </div>
+
+        <div id="food">
+            <div id="food-display">
+                <div class="heading1">
+
+                    <h1>Your Meal!</h1>
+
+                    <h3>Feeling Hungry ? Order Food now</h3>
+                    <h3 id="orderid">OrderID : </h3>
+                </div>
+                <div id="loading">
+                    <img src="./media/preloader.gif" alt="">
+                </div>
+                <div class="grid" id="jsgrid">
+                    <div class="shell" id="mac">
+                        <img src="./media/bigmac.png" alt="">
+                        <div class="heading2">
+                           <p>Item Name : Big Mac</p>
+                        <p>Price :  ₹235</p> 
+                        </div>
+                        
+                    </div>
+                    <div class="shell Coffee" id="coffee">
+                        <img src="./media/Iced Coffee.png" alt="">
+                        <div class="heading2">
+                            <p>Item Name : Iced Coffee</p>
+                         <p>Price :  ₹180</p> 
+                         </div>
+                    </div>
+                    <div class="shell egg" id="egg">
+                        <img src="./media/Egg Muffins.png" alt="">
+                        <div class="heading2">
+                            <p>Item Name : Egg McMuffin</p>
+                         <p>Price :  ₹220</p> 
+                         </div>
+                    </div>
+                    <div class="shell" id="burrito">
+                        <img src="./media/Sausage Burrito.png" alt="">
+                        <div class="heading2">
+                            <p>Item Name : Sausage Burrito</p>
+                         <p>Price :  ₹190</p> 
+                         </div>
+                    </div>
+                    <div class="shell" id="Spicy">
+                        <img src="./media/Crispy.png" alt="">
+                        <div class="heading2">
+                            <p>Item Name : Spicy McCrispy</p>
+                         <p>Price :  ₹255</p> 
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</body>
+<script src="index.js">
+
+</script>
+</html>
